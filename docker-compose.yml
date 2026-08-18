@@ -1,0 +1,10 @@
+services:
+
+  agent-a:
+    build: ./agent-a
+
+  agent-b:
+    build: ./agent-b
+
+  agent-c:
+    build: ./agent-c
