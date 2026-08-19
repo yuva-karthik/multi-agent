@@ -2,9 +2,15 @@ services:
 
   agent-a:
     build: ./agent-a
+    ports:
+      - "8001:8000"
 
   agent-b:
     build: ./agent-b
+    ports:
+      - "8002:8000"
 
   agent-c:
     build: ./agent-c
+    ports:
+      - "8003:8000"
