@@ -12,7 +12,8 @@ def black_agent(state):
             you are not supposed to talk about the positives or advantages.
             you are not supposed to summarize the discussion.
             
-            topic: {state["topic"]}"""
+            topic: {state["topic"]}
+            previous discussion: {state["messages"]}"""
 
     response = llm.invoke(prompt)
 
@@ -22,6 +23,7 @@ def black_agent(state):
     return {
         "messages": [
             {
+                "role" : "assistant",
                 "agent" : "black",
                 "content" : response.content
             }

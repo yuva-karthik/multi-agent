@@ -1,15 +1,15 @@
-from typing import TypedDict
+from typing import Annotated , TypedDict
 
 from langgraph.graph import StateGraph, START, END
+from langgraph.graph.message import add_messages
 
 from agents.yellow import yellow_agent
 from agents.black import black_agent
 from agents.blue import blue_agent
-from agents.llm import llm
 
 class AgentState(TypedDict):
     topic: str
-    messages: str
+    messages: Annotated[list, add_messages]
 
 graph = StateGraph(AgentState)
 
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     }
 
     result = app.invoke(initial_state)
-    print("\n ==========DISCUSSION========== \n")
-    for msg in result["messages"]:
-        print(f"{msg['agent']}: {msg["content"]}")
-        print()
+    # print("\n ==========DISCUSSION========== \n")
+    # for msg in result["messages"]:
+    #     print(f"{msg['agent']}: {msg["content"]}")
+    #     print()

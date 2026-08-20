@@ -12,7 +12,8 @@ def yellow_agent(state):
             you are not supposed to talk about the negatives or disadvantages.
             you are not supposed to summarize the discussion.
             
-            topic: {state["topic"]}"""
+            topic: {state["topic"]}
+            previous discussion: {state["messages"]}"""
 
     response = llm.invoke(prompt)
     print("\nYELLOW: ")
@@ -21,6 +22,7 @@ def yellow_agent(state):
     return {
         "messages": [
             {
+                "role" : "assistant",
                 "agent" : "yellow",
                 "content" : response.content
             }
