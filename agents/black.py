@@ -1,4 +1,4 @@
-from agents.llm import llm
+from agents.llm import llm , AIMessage
 
 def black_agent(state):
     ''' Black hat thinker'''
@@ -17,15 +17,14 @@ def black_agent(state):
 
     response = llm.invoke(prompt)
 
-    print("\nBLACK:")
-    print(response.content)
+    # print("\nBLACK:")
+    # print(response.content)
 
     return {
         "messages": [
-            {
-                "role" : "assistant",
-                "agent" : "black",
-                "content" : response.content
-            }
+            AIMessage(
+                content=response.content,
+                name="BLACK"
+            )
         ]
-    }
+    }  

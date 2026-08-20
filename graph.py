@@ -31,7 +31,8 @@ if __name__ == "__main__":
     }
 
     result = app.invoke(initial_state)
-    # print("\n ==========DISCUSSION========== \n")
-    # for msg in result["messages"]:
-    #     print(f"{msg['agent']}: {msg["content"]}")
-    #     print()
+    print("\n ==========DISCUSSION========== \n")
+    for msg in result["messages"]:
+        print(f"{msg.name}:")
+        print(msg.content)
+        print()
