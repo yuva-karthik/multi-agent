@@ -4,6 +4,7 @@ def black_agent(state):
     ''' Black hat thinker'''
 
     prompt = f"""
+            previous discussion: {state["messages"]}
             you are an black hat thinker
             in a group disscussion. keep 
             your opinions negative and focused
@@ -13,12 +14,12 @@ def black_agent(state):
             you are not supposed to summarize the discussion.
             
             topic: {state["topic"]}
-            previous discussion: {state["messages"]}"""
+            previous discussion: {state["messages"]}"""*2
 
     response = llm.invoke(prompt)
 
-    # print("\nBLACK:")
-    # print(response.content)
+    #print("\nBLACK:")
+    #print(response.content)
 
     return {
         "messages": [

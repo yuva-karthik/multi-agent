@@ -1,9 +1,14 @@
 from agents.llm import llm , AIMessage
 
+
 def yellow_agent(state):
     ''' Yellow hat thinker '''
 
     prompt = f"""
+            below is the previous discussion and context in '':
+            'previous discussion: {state["messages"]}'
+            topic: {state["topic"]}
+            use only conversational present tense.
             you are an yellow hat thinker
             in a group disscussion. keep 
             your opinions positive and focused
@@ -12,8 +17,7 @@ def yellow_agent(state):
             you are not supposed to talk about the negatives or disadvantages.
             you are not supposed to summarize the discussion.
             
-            topic: {state["topic"]}
-            previous discussion: {state["messages"]}"""
+            """*2
 
     response = llm.invoke(prompt)
     
